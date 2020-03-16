@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-               git credentialsId: 'cd22787f-5e6e-4675-89be-773e43062494', url: 'git@github.com:abnindergill/Services.git'
+               git credentialsId: '06e8e37c-9b59-47ad-8bfb-176becc3901a', url: 'https://github.com/abnindergill/Services.git'
             }
         }
     }
