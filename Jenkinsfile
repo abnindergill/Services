@@ -3,6 +3,7 @@ node{
         git 'https://github.com/abnindergill/Services.git'
     }
     stage('Compile-Package'){
-        sh 'mvn package'
+        def mvn_home = tool name: '', type: 'maven'
+        sh "${mvn_home}/bin/mvn package"
     }
 }
