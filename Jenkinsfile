@@ -6,7 +6,7 @@ node{
     stage('Initialize')
     {
         def dockerHome = tool 'docker'
-        def dockerHubLogin = tool 'credLogin'
+        dockerHubLogin = tool 'credLogin'
         mvn_home = tool 'maven'
         env.PATH = "${dockerHome}/bin:${mvn_home}/bin:${env.PATH}"
     }
