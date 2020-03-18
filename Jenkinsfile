@@ -18,14 +18,14 @@ node{
     }
    
     stage('Build image'){
-        customImage = docker.build("abninder/test-image:${env.BUILD_ID}")
+        sh ' docker build -t abninder/test-image . '
     }
     stage('Push image')
     {
-       docker.withRegistry('', 'docker-hub-credentials') 
-       {
-            /* Push the container to the custom Registry */
-            customImage.push()
-        }       
+        withCredentials([string(credentialsId: 'docker-info', variable: 'docker-pwd')]) 
+        {
+            sh "docker login -u abninder -p ${docker-pwd}"
+            sh 'docker push abninder/test-image'
+        }
     }
 }
