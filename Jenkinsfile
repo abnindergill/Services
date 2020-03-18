@@ -4,9 +4,9 @@ node{
     
     stage('Initialize')
     {
-       
+        def dockerHome = tool 'docker'
         mvn_home = tool 'maven'
-     
+        env.PATH = "${dockerHome}/bin:${mvn_home}/bin:${env.PATH}"
     }
    
     stage('SCM Checkout'){
