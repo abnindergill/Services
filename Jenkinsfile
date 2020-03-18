@@ -22,9 +22,9 @@ node{
     }
     stage('Push image')
     {
-        withCredentials([string(credentialsId: 'docker-info', variable: 'docker-pwd')]) 
+        withCredentials([string(credentialsId: 'dockerHubLoginDetails', variable: 'dockerCredId')]) {
         {
-            sh "docker login -u abninder -p ${docker-pwd}"
+            sh "docker login -u abninder -p ${dockerCredId}"
             sh 'docker push abninder/test-image'
         }
     }
