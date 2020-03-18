@@ -31,6 +31,6 @@ node{
     
     stage('Delpoy application')
     {
-        sh 'docker run -p 8080:8081 abninder/test-image
+        sh 'docker run -p 8080:8081 abninder/test-image'
     }
 }
