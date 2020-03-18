@@ -18,7 +18,7 @@ node{
     }
    
     stage('Build image'){
-        customImage = docker.build("test-image:${env.BUILD_ID}")
+        customImage = docker.build("abninder/test-image:${env.BUILD_ID}")
     }
     stage('Push image')
     {
