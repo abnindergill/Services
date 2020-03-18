@@ -22,7 +22,7 @@ node{
     }
     stage('Push image')
     {
-       docker.withRegistry('https://hub.docker.com/repository/docker', 'docker-hub-credentials') 
+       docker.withRegistry('https://hub.docker.com', 'docker-hub-credentials') 
        {
             /* Push the container to the custom Registry */
             customImage.push()
