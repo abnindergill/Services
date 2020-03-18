@@ -1,12 +1,10 @@
 node{
     def customImage
     def mvn_home
-    def dockerHubLogin
-    
+  
     stage('Initialize')
     {
         def dockerHome = tool 'docker'
-        dockerHubLogin = tool 'credLogin'
         mvn_home = tool 'maven'
         env.PATH = "${dockerHome}/bin:${mvn_home}/bin:${env.PATH}"
     }
