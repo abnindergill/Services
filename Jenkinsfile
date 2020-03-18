@@ -1,12 +1,16 @@
 node{
     def customImage
+    
+    stage('Initialize')
+    {
+        def dockerHome = tool 'docker'
+        def mvn_home  = tool 'maven'
+        env.PATH = "${dockerHome}/bin:${mvn_home}/bin:${env.PATH}"
+    }
     stage('SCM Checkout'){
         git 'https://github.com/abnindergill/Services.git'
     }
-    stage('Compile-Package'){
-        def mvn_home = tool name: 'maven', type: 'maven'
-        sh "${mvn_home}/bin/mvn package"
-    }
+   
     stage('Build image'){
         customImage = docker.build("test-image:${env.BUILD_ID}")
     }
