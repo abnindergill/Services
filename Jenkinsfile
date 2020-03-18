@@ -7,8 +7,13 @@ node{
         def mvn_home  = tool 'maven'
         env.PATH = "${dockerHome}/bin:${mvn_home}/bin:${env.PATH}"
     }
+   
     stage('SCM Checkout'){
         git 'https://github.com/abnindergill/Services.git'
+    }
+    
+    stage('Compile-Package'){
+        sh "${mvn_home}/bin/mvn package"
     }
    
     stage('Build image'){
