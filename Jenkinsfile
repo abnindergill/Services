@@ -22,7 +22,7 @@ node{
     }
     stage('Push image')
     {
-       docker.withRegistry('abninder/test', 'docker-hub-credentials') 
+       docker.withRegistry('', 'docker-hub-credentials') 
        {
             /* Push the container to the custom Registry */
             customImage.push()
