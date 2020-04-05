@@ -8,6 +8,6 @@ public class Controller {
 
     @GetMapping("/greeting")
     public String greeting() {
-        return "deployed on ec2 instance";
+        return "deployed another version on ec2 instance";
     }
 }
